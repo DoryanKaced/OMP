@@ -2,9 +2,10 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"detect_shp_encoding": "00_geoloader.ipynb",
+         "read_file_shp": "00_geoloader.ipynb"}
 
-modules = []
+modules = ["geoloader.py"]
 
 doc_url = "https://DoryanKaced.github.io/OMP/"
 

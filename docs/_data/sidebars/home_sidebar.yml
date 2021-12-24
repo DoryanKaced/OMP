@@ -10,8 +10,8 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: module name here
-      url: core.html
+      title: geoloader
+      url: geoloader.html
     output: web
     title: OMP
   output: web
