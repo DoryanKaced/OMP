@@ -38,8 +38,7 @@ nb_path: "00_geoloader.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Load-shapefiles">Load shapefiles<a class="anchor-link" href="#Load-shapefiles"> </a></h2><blockquote><p>There is a shapefile library (pyshp) that allows to load and parse shapefile</p>
-</blockquote>
+<h2 id="Load-shapefiles">Load shapefiles<a class="anchor-link" href="#Load-shapefiles"> </a></h2><p>There is a shapefile library (pyshp) that allows to load and parse shapefile.But there are a few problems for our utilization.</p>
 
 </div>
 </div>
@@ -51,17 +50,19 @@ nb_path: "00_geoloader.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">shp_senegal</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;geospatial_data/Senegal&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.shp&quot;</span><span class="p">)]</span>
-<span class="n">shp_guyana</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;geospatial_data/Guyana&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.shp&quot;</span><span class="p">)]</span>
-<span class="n">shp_ecuador</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;geospatial_data/Ecuador&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.shp&quot;</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">SHP_SENEGAL</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;geospatial_data/Senegal&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.shp&quot;</span><span class="p">)]</span>
+<span class="n">SHP_GUYANA</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;geospatial_data/Guyana&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.shp&quot;</span><span class="p">)]</span>
+<span class="n">SHP_ECUADOR</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;geospatial_data/Ecuador&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.shp&quot;</span><span class="p">)]</span>
 
-<span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_senegal</span><span class="p">:</span>
+<span class="n">list_shp</span> <span class="o">=</span> <span class="n">shp_senegal</span> <span class="o">+</span> <span class="n">shp_guyana</span> <span class="o">+</span> <span class="n">shp_ecuador</span>
+
+<span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_SENEGAL</span><span class="p">:</span>
     <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Senegal/&quot;</span><span class="o">+</span><span class="n">shp</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_ecuador</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_ECUADOR</span><span class="p">:</span>
     <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Ecuador/&quot;</span><span class="o">+</span><span class="n">shp</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_guyana</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_GUYANA</span><span class="p">:</span>
     <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Guyana/&quot;</span><span class="o">+</span><span class="n">shp</span><span class="p">)</span>
 </pre></div>
 
@@ -78,12 +79,12 @@ nb_path: "00_geoloader.ipynb"
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnicodeDecodeError</span>                        Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_20992/2282079860.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> 
-<span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-green-fg">for</span> shp <span class="ansi-green-fg">in</span> shp_ecuador<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 9</span><span class="ansi-red-fg">     </span>shapefile<span class="ansi-blue-fg">.</span>Reader<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;./geospatial_data/Ecuador/&#34;</span><span class="ansi-blue-fg">+</span>shp<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span> 
-<span class="ansi-green-intense-fg ansi-bold">     11</span> <span class="ansi-green-fg">for</span> shp <span class="ansi-green-fg">in</span> shp_guyana<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">/tmp/ipykernel_21712/853253922.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span> 
+<span class="ansi-green-intense-fg ansi-bold">     10</span> <span class="ansi-green-fg">for</span> shp <span class="ansi-green-fg">in</span> SHP_ECUADOR<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg">     </span>shapefile<span class="ansi-blue-fg">.</span>Reader<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;./geospatial_data/Ecuador/&#34;</span><span class="ansi-blue-fg">+</span>shp<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span> 
+<span class="ansi-green-intense-fg ansi-bold">     13</span> <span class="ansi-green-fg">for</span> shp <span class="ansi-green-fg">in</span> SHP_GUYANA<span class="ansi-blue-fg">:</span>
 
 <span class="ansi-green-fg">~/.local/lib/python3.8/site-packages/shapefile.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, *args, **kwargs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    806</span>         <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>args<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
@@ -131,6 +132,13 @@ nb_path: "00_geoloader.ipynb"
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This function can detect the encoding used in a shapefile by opening the .dbf file (containing the attribute table) and using the chardet library to detect the encoding.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -142,8 +150,9 @@ nb_path: "00_geoloader.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="detect_shp_encoding" class="doc_header"><code>detect_shp_encoding</code><a href="https://github.com/DoryanKaced/OMP/tree/main/OMP/geoloader.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>detect_shp_encoding</code>(<strong><code>path</code></strong>)</p>
+<h4 id="detect_shapefile_encoding" class="doc_header"><code>detect_shapefile_encoding</code><a href="https://github.com/DoryanKaced/OMP/tree/main/OMP/geoloader.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>detect_shapefile_encoding</code>(<strong><code>path</code></strong>)</p>
 </blockquote>
+<p>Read the encoding of a dbf file associated to a shapefile.</p>
 
 </div>
 
@@ -169,20 +178,9 @@ nb_path: "00_geoloader.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_senegal</span><span class="p">:</span>
-        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Senegal/&quot;</span><span class="o">+</span><span class="n">shp</span>
-        <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="n">detect_shp_encoding</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">detect_shapefile_encoding</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Senegal/2018 06 27 pm Thille boubacar&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;ascii&quot;</span>
 
-    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_ecuador</span><span class="p">:</span>
-        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Ecuador/&quot;</span><span class="o">+</span><span class="n">shp</span>
-        <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="n">detect_shp_encoding</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-
-    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_guyana</span><span class="p">:</span>
-        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Guyana/&quot;</span><span class="o">+</span><span class="n">shp</span>
-        <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="n">detect_shp_encoding</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">shp</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">detect_shapefile_encoding</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Ecuador/2013 07 30 pm all Pacayacu&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;ISO-8859-1&quot;</span>
 </pre></div>
 
     </div>
@@ -192,11 +190,55 @@ nb_path: "00_geoloader.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_SENEGAL</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Senegal/&quot;</span><span class="o">+</span><span class="n">shp</span>
+        <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="n">detect_shapefile_encoding</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_ECUADOR</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Ecuador/&quot;</span><span class="o">+</span><span class="n">shp</span>
+        <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="n">detect_shapefile_encoding</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_GUYANA</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Guyana/&quot;</span><span class="o">+</span><span class="n">shp</span>
+        <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="n">detect_shapefile_encoding</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">shp</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2018 07 04 1115 Djodji.shp
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>The only failing load is on what seems to be a faulty shapefile. (The attribute table is empty)</p>
-<p>The pyshp put the shapefile in this form :</p>
 </blockquote>
+<p>The pyshp put the shapefile in this form :</p>
 
 </div>
 </div>
@@ -210,10 +252,6 @@ nb_path: "00_geoloader.ipynb"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">geofile</span> <span class="o">=</span> <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="n">detect_shp_encoding</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">geofile</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">geofile</span><span class="o">.</span><span class="n">shapes</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">geofile</span><span class="o">.</span><span class="n">records</span><span class="p">())</span>
 </pre></div>
 
     </div>
@@ -227,12 +265,8 @@ nb_path: "00_geoloader.ipynb"
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>shapefile Reader
-    9 shapes (type &#39;POLYGON&#39;)
-    9 records (6 fields)
-
-Shapes: [&lt;shapefile.Shape object at 0x7f57f18e16a0&gt;, &lt;shapefile.Shape object at 0x7f57f0d284f0&gt;, &lt;shapefile.Shape object at 0x7f57f0d9bd90&gt;, &lt;shapefile.Shape object at 0x7f57f0d9b280&gt;, &lt;shapefile.Shape object at 0x7f57f0d9beb0&gt;, &lt;shapefile.Shape object at 0x7f57f0d9b100&gt;, &lt;shapefile.Shape object at 0x7f57f0d9b7f0&gt;, &lt;shapefile.Shape object at 0x7f57f0d9b490&gt;, &lt;shapefile.Shape object at 0x7f57f0d9b400&gt;]
-
-[Record #0: [0, &#39;Zone brésilienne et de métissage&#39;, &#39;Habitations&#39;, &#39;Brésilien+Amérindien&#39;, &#39;Forêt+Habitations&#39;], Record #1: [0, &#39;Zone à relief -  Zone des teko&#39;, &#39;Habitations&#39;, &#39;Teko&#39;, &#39;Forêt+Habitations&#39;], Record #2: [0, &#39;Décharge brésilienne&#39;, &#39;Décharge&#39;, &#39;Brésilien&#39;, &#39;Berge&#39;], Record #3: [0, &#34;Zone pas peuplée, présence d&#39;abattis&#34;, &#39;Forêt+Abattis&#39;, &#39;Inhabité&#39;, &#39;Forêt+Abattis&#39;], Record #4: [0, &#39;Zone wayapi&#39;, &#39;Habitations&#39;, &#39;Wayapi&#39;, &#39;Forêt+Habitations&#39;], Record #5: [0, &#39;Baignade en été&#39;, &#39;Baignade&#39;, &#39;Inhabité&#39;, &#39;Berge&#39;], Record #6: [0, &#34;Pas d&#39;information&#34;, &#39;Forêt&#39;, &#39;NSP&#39;, &#39;Forêt&#39;], Record #7: [0, &#39;Baignade en été&#39;, &#39;Baignade&#39;, &#39;Inhabité&#39;, &#39;Berge&#39;], Record #8: [0, &#39;Fleuve Oyapock&#39;, &#39;Transit&#39;, &#39;Inhabité&#39;, &#39;Berge&#39;]]
+    11 shapes (type &#39;POLYGON&#39;)
+    11 records (6 fields)
 </pre>
 </div>
 </div>
@@ -243,6 +277,148 @@ Shapes: [&lt;shapefile.Shape object at 0x7f57f18e16a0&gt;, &lt;shapefile.Shape o
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The column names are in the field field</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geofile</span><span class="o">.</span><span class="n">fields</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&#39;DeletionFlag&#39;, &#39;C&#39;, 1, 0),
+ [&#39;Activite_1&#39;, &#39;C&#39;, 50, 0],
+ [&#39;id_zone&#39;, &#39;C&#39;, 50, 0],
+ [&#39;Type_route&#39;, &#39;C&#39;, 50, 0],
+ [&#39;Routes&#39;, &#39;C&#39;, 50, 0],
+ [&#39;Transport&#39;, &#39;C&#39;, 50, 0]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The shapes are accessible via the shapes function</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geofile</span><span class="o">.</span><span class="n">shapes</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Shapes: [&lt;shapefile.Shape object at 0x7f56b46d3bb0&gt;, &lt;shapefile.Shape object at 0x7f56b46d3df0&gt;, &lt;shapefile.Shape object at 0x7f56b46d32b0&gt;, &lt;shapefile.Shape object at 0x7f56b46d3970&gt;, &lt;shapefile.Shape object at 0x7f56b43087f0&gt;, &lt;shapefile.Shape object at 0x7f56b4715fa0&gt;, &lt;shapefile.Shape object at 0x7f56b4417fd0&gt;, &lt;shapefile.Shape object at 0x7f56b3f81b80&gt;, &lt;shapefile.Shape object at 0x7f56b3f81550&gt;, &lt;shapefile.Shape object at 0x7f56b416c760&gt;, &lt;shapefile.Shape object at 0x7f56b494c670&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The values are accessible via the records function</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geofile</span><span class="o">.</span><span class="n">records</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[Record #0: [&#39;elevage&#39;, &#39;1&#39;, &#39;laterite&#39;, &#39;2/4&#39;, &#39;voiture&#39;],
+ Record #1: [&#39;elevage&#39;, &#39;2a&#39;, &#39;piste_sable&#39;, &#39;4/4&#39;, &#39;pied&#39;],
+ Record #2: [&#39;elevage&#39;, &#39;2b&#39;, &#39;piste_charette&#39;, &#39;3/4&#39;, &#39;charette&#39;],
+ Record #3: [&#39;elevage&#39;, &#39;3&#39;, &#39;goudron&#39;, &#39;1/4&#39;, &#39;voiture&#39;],
+ Record #4: [&#39;elevage&#39;, &#39;1&#39;, &#39;laterite&#39;, &#39;2/4&#39;, &#39;voiture&#39;],
+ Record #5: [&#39;elevage&#39;, &#39;2a&#39;, &#39;piste_sable&#39;, &#39;4/4&#39;, &#39;pied&#39;],
+ Record #6: [&#39;elevage&#39;, &#39;2b&#39;, &#39;piste_charette&#39;, &#39;3/4&#39;, &#39;charette&#39;],
+ Record #7: [&#39;elevage&#39;, &#39;3&#39;, &#39;goudron&#39;, &#39;1/4&#39;, &#39;voiture&#39;],
+ Record #8: [&#39;maraichage&#39;, &#39;1&#39;, &#39;laterite&#39;, &#39;2/4&#39;, &#39;voiture&#39;],
+ Record #9: [&#39;maraichage&#39;, &#39;2a&#39;, &#39;piste_sable&#39;, &#39;4/4&#39;, &#39;pied&#39;],
+ Record #10: [&#39;maraichage&#39;, &#39;2b&#39;, &#39;piste_charette&#39;, &#39;3/4&#39;, &#39;charette&#39;]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This function can load any ESRI shapefile given the path to it and put it in a pandas dataframe. The path must be the path to the .shp file.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -254,7 +430,7 @@ Shapes: [&lt;shapefile.Shape object at 0x7f57f18e16a0&gt;, &lt;shapefile.Shape o
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_file_shp" class="doc_header"><code>read_file_shp</code><a href="https://github.com/DoryanKaced/OMP/tree/main/OMP/geoloader.py#L27" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_file_shp</code>(<strong><code>path</code></strong>)</p>
+<h4 id="read_file_shp" class="doc_header"><code>read_file_shp</code><a href="https://github.com/DoryanKaced/OMP/tree/main/OMP/geoloader.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_file_shp</code>(<strong><code>path</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -276,7 +452,7 @@ Shapes: [&lt;shapefile.Shape object at 0x7f57f18e16a0&gt;, &lt;shapefile.Shape o
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This function can load any ESRI shapefile given the path to it. The path must be the path to the .shp file.</p>
+<p>Here is an example :</p>
 
 </div>
 </div>
@@ -288,17 +464,114 @@ Shapes: [&lt;shapefile.Shape object at 0x7f57f18e16a0&gt;, &lt;shapefile.Shape o
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_senegal</span><span class="p">:</span>
-    <span class="n">read_file_shp</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Senegal/&quot;</span><span class="o">+</span><span class="n">shp</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_ecuador</span><span class="p">:</span>
-    <span class="n">read_file_shp</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Ecuador/&quot;</span><span class="o">+</span><span class="n">shp</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">shp_guyana</span><span class="p">:</span>
-    <span class="n">read_file_shp</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Guyana/&quot;</span><span class="o">+</span><span class="n">shp</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">read_file_shp</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Ecuador/2013 07 30 pm all Pacayacu.shp&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/cast.py:1990: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  result[:] = values
+/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/inference.py:383: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  iter(obj)  # Can iterate over it.
+/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/inference.py:384: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  len(obj)  # Has a length associated with it.
+/home/user/.local/lib/python3.8/site-packages/pandas/io/formats/printing.py:118: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  s = iter(seq)
+/home/user/.local/lib/python3.8/site-packages/pandas/io/formats/printing.py:122: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  for i in range(min(nitems, len(seq)))
+/home/user/.local/lib/python3.8/site-packages/pandas/io/formats/printing.py:126: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if nitems &lt; len(seq):
+/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/inference.py:383: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  iter(obj)  # Can iterate over it.
+/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/inference.py:384: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  len(obj)  # Has a length associated with it.
+/home/user/.local/lib/python3.8/site-packages/pandas/io/formats/printing.py:118: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  s = iter(seq)
+/home/user/.local/lib/python3.8/site-packages/pandas/io/formats/printing.py:122: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  for i in range(min(nitems, len(seq)))
+/home/user/.local/lib/python3.8/site-packages/pandas/io/formats/printing.py:126: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if nitems &lt; len(seq):
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>name</th>
+      <th>prod_ptrol</th>
+      <th>oil_palm</th>
+      <th>indigenos</th>
+      <th>oil_confli</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>A</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>(POLYGON ((887406.5009568967 10006111.9820256,...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>B2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>(POLYGON ((953068.8517980967 9926649.261819638...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>B1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(POLYGON ((927786.0690071248 9981384.029080968...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
