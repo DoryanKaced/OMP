@@ -462,9 +462,7 @@ nb_path: "00_geoloader.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/cast.py:1990: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  result[:] = values
-/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/inference.py:383: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+<pre>/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/inference.py:383: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
   iter(obj)  # Can iterate over it.
 /home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/inference.py:384: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
   len(obj)  # Has a length associated with it.
@@ -569,6 +567,51 @@ nb_path: "00_geoloader.ipynb"
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_SENEGAL</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Senegal/&quot;</span><span class="o">+</span><span class="n">shp</span>
+        <span class="n">read_shapefile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_ECUADOR</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Ecuador/&quot;</span><span class="o">+</span><span class="n">shp</span>
+        <span class="n">read_shapefile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">shp</span> <span class="ow">in</span> <span class="n">SHP_GUYANA</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./geospatial_data/Guyana/&quot;</span><span class="o">+</span><span class="n">shp</span>
+        <span class="n">read_shapefile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">shp</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/home/user/.local/lib/python3.8/site-packages/pandas/core/dtypes/cast.py:1990: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  result[:] = values
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 

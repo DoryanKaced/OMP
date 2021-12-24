@@ -32,19 +32,20 @@ def read_shapefile(path) -> pd.DataFrame:
     character_encoding = detect_shapefile_encoding(path)
     try:
         sf = shapefile.Reader(path, encoding= character_encoding)
-    except :
-        raise Exception('Unreadable', 'path')
+    except UnicodeDecodeError:
+        print("path")
 
 
     col = [x[0] for x in sf.fields[1:]]
 
     df = pd.DataFrame(data = sf.records(), columns = col)
 
-    shapes = [sf.shapes()[i] for i in range(len(sf.shapes()))]
-    shapes = [shape(x) for x in shapes] #convert shapefile.shape to shapely.shape in order to make the conversion to multipolygons easier
-    shapes = [MultiPolygon([x]) if x.geom_type != 'MultiPolygon' and x.area > 0 else None for x in shapes]
+    geometries = [(MultiPolygon([x]) if x.geom_type != 'MultiPolygon'else x )
+                                  if x.area > 0
+                                  else None
+                                  for x in map(shape,sf.shapes())]
 
-    df['geometry'] = shapes
+    df['geometry'] = geometries
 
     df = df[df['geometry']!=None]
 
