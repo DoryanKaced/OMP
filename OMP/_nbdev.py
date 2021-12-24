@@ -3,7 +3,7 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"detect_shapefile_encoding": "00_geoloader.ipynb",
-         "read_file_shp": "00_geoloader.ipynb"}
+         "read_shapefile": "00_geoloader.ipynb"}
 
 modules = ["geoloader.py"]
 

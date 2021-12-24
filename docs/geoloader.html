@@ -217,20 +217,6 @@ nb_path: "00_geoloader.ipynb"
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2018 07 04 1115 Djodji.shp
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
@@ -265,8 +251,8 @@ nb_path: "00_geoloader.ipynb"
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>shapefile Reader
-    11 shapes (type &#39;POLYGON&#39;)
-    11 records (6 fields)
+    9 shapes (type &#39;POLYGON&#39;)
+    9 records (6 fields)
 </pre>
 </div>
 </div>
@@ -307,11 +293,11 @@ nb_path: "00_geoloader.ipynb"
 
 <div class="output_text output_subarea output_execute_result">
 <pre>[(&#39;DeletionFlag&#39;, &#39;C&#39;, 1, 0),
- [&#39;Activite_1&#39;, &#39;C&#39;, 50, 0],
- [&#39;id_zone&#39;, &#39;C&#39;, 50, 0],
- [&#39;Type_route&#39;, &#39;C&#39;, 50, 0],
- [&#39;Routes&#39;, &#39;C&#39;, 50, 0],
- [&#39;Transport&#39;, &#39;C&#39;, 50, 0]]</pre>
+ [&#39;Id&#39;, &#39;N&#39;, 6, 0],
+ [&#39;ZADA&#39;, &#39;C&#39;, 60, 0],
+ [&#39;LAND_USE&#39;, &#39;C&#39;, 50, 0],
+ [&#39;ETHNIES&#39;, &#39;C&#39;, 50, 0],
+ [&#39;LAND COVER&#39;, &#39;C&#39;, 200, 0]]</pre>
 </div>
 
 </div>
@@ -351,7 +337,7 @@ nb_path: "00_geoloader.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Shapes: [&lt;shapefile.Shape object at 0x7f56b46d3bb0&gt;, &lt;shapefile.Shape object at 0x7f56b46d3df0&gt;, &lt;shapefile.Shape object at 0x7f56b46d32b0&gt;, &lt;shapefile.Shape object at 0x7f56b46d3970&gt;, &lt;shapefile.Shape object at 0x7f56b43087f0&gt;, &lt;shapefile.Shape object at 0x7f56b4715fa0&gt;, &lt;shapefile.Shape object at 0x7f56b4417fd0&gt;, &lt;shapefile.Shape object at 0x7f56b3f81b80&gt;, &lt;shapefile.Shape object at 0x7f56b3f81550&gt;, &lt;shapefile.Shape object at 0x7f56b416c760&gt;, &lt;shapefile.Shape object at 0x7f56b494c670&gt;]</pre>
+<pre>Shapes: [&lt;shapefile.Shape object at 0x7f56b4e99310&gt;, &lt;shapefile.Shape object at 0x7f56b4e2e4c0&gt;, &lt;shapefile.Shape object at 0x7f56b4e2e5b0&gt;, &lt;shapefile.Shape object at 0x7f56b4e99880&gt;, &lt;shapefile.Shape object at 0x7f56b48894f0&gt;, &lt;shapefile.Shape object at 0x7f56b4984730&gt;, &lt;shapefile.Shape object at 0x7f56b3f84e80&gt;, &lt;shapefile.Shape object at 0x7f56b4e99a30&gt;, &lt;shapefile.Shape object at 0x7f56b4e2e130&gt;]</pre>
 </div>
 
 </div>
@@ -391,17 +377,15 @@ nb_path: "00_geoloader.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[Record #0: [&#39;elevage&#39;, &#39;1&#39;, &#39;laterite&#39;, &#39;2/4&#39;, &#39;voiture&#39;],
- Record #1: [&#39;elevage&#39;, &#39;2a&#39;, &#39;piste_sable&#39;, &#39;4/4&#39;, &#39;pied&#39;],
- Record #2: [&#39;elevage&#39;, &#39;2b&#39;, &#39;piste_charette&#39;, &#39;3/4&#39;, &#39;charette&#39;],
- Record #3: [&#39;elevage&#39;, &#39;3&#39;, &#39;goudron&#39;, &#39;1/4&#39;, &#39;voiture&#39;],
- Record #4: [&#39;elevage&#39;, &#39;1&#39;, &#39;laterite&#39;, &#39;2/4&#39;, &#39;voiture&#39;],
- Record #5: [&#39;elevage&#39;, &#39;2a&#39;, &#39;piste_sable&#39;, &#39;4/4&#39;, &#39;pied&#39;],
- Record #6: [&#39;elevage&#39;, &#39;2b&#39;, &#39;piste_charette&#39;, &#39;3/4&#39;, &#39;charette&#39;],
- Record #7: [&#39;elevage&#39;, &#39;3&#39;, &#39;goudron&#39;, &#39;1/4&#39;, &#39;voiture&#39;],
- Record #8: [&#39;maraichage&#39;, &#39;1&#39;, &#39;laterite&#39;, &#39;2/4&#39;, &#39;voiture&#39;],
- Record #9: [&#39;maraichage&#39;, &#39;2a&#39;, &#39;piste_sable&#39;, &#39;4/4&#39;, &#39;pied&#39;],
- Record #10: [&#39;maraichage&#39;, &#39;2b&#39;, &#39;piste_charette&#39;, &#39;3/4&#39;, &#39;charette&#39;]]</pre>
+<pre>[Record #0: [0, &#39;Zone brésilienne et de métissage&#39;, &#39;Habitations&#39;, &#39;Brésilien+Amérindien&#39;, &#39;Forêt+Habitations&#39;],
+ Record #1: [0, &#39;Zone à relief -  Zone des teko&#39;, &#39;Habitations&#39;, &#39;Teko&#39;, &#39;Forêt+Habitations&#39;],
+ Record #2: [0, &#39;Décharge brésilienne&#39;, &#39;Décharge&#39;, &#39;Brésilien&#39;, &#39;Berge&#39;],
+ Record #3: [0, &#34;Zone pas peuplée, présence d&#39;abattis&#34;, &#39;Forêt+Abattis&#39;, &#39;Inhabité&#39;, &#39;Forêt+Abattis&#39;],
+ Record #4: [0, &#39;Zone wayapi&#39;, &#39;Habitations&#39;, &#39;Wayapi&#39;, &#39;Forêt+Habitations&#39;],
+ Record #5: [0, &#39;Baignade en été&#39;, &#39;Baignade&#39;, &#39;Inhabité&#39;, &#39;Berge&#39;],
+ Record #6: [0, &#34;Pas d&#39;information&#34;, &#39;Forêt&#39;, &#39;NSP&#39;, &#39;Forêt&#39;],
+ Record #7: [0, &#39;Baignade en été&#39;, &#39;Baignade&#39;, &#39;Inhabité&#39;, &#39;Berge&#39;],
+ Record #8: [0, &#39;Fleuve Oyapock&#39;, &#39;Transit&#39;, &#39;Inhabité&#39;, &#39;Berge&#39;]]</pre>
 </div>
 
 </div>
@@ -430,8 +414,9 @@ nb_path: "00_geoloader.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_file_shp" class="doc_header"><code>read_file_shp</code><a href="https://github.com/DoryanKaced/OMP/tree/main/OMP/geoloader.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_file_shp</code>(<strong><code>path</code></strong>)</p>
+<h4 id="read_shapefile" class="doc_header"><code>read_shapefile</code><a href="https://github.com/DoryanKaced/OMP/tree/main/OMP/geoloader.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_shapefile</code>(<strong><code>path</code></strong>)</p>
 </blockquote>
+<p>Read a ESRI shapefile and convert it to a dataframe</p>
 
 </div>
 
@@ -464,7 +449,7 @@ nb_path: "00_geoloader.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">read_file_shp</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Ecuador/2013 07 30 pm all Pacayacu.shp&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">read_shapefile</span><span class="p">(</span><span class="s2">&quot;./geospatial_data/Ecuador/2013 07 30 pm all Pacayacu.shp&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
